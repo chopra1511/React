@@ -1,7 +1,8 @@
 import "./App.css";
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from "./components/Expense/ExpenseItem.js";
+import Card from "./components/UI/Card.js";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -28,7 +29,7 @@ function App() {
   ];
 
   return (
-    <div>
+    <Card>
       {expenses.map((expense) => (
         <ExpenseItem
           title={expense.title}
@@ -37,7 +38,7 @@ function App() {
           date={expense.date}
         ></ExpenseItem>
       ))}
-    </div>
+    </Card>
   );
 }
 
