@@ -1,14 +1,25 @@
-import "./ExpenseItem.css";
+import React from 'react';
 
-const ExpenseDetails = (props) => {
-    return (
-        <div className="expense-item__description">
-        <h1>{props.title}</h1>
-        <p>{props.LocationOfExpenditure}</p>
-        <div className="expense-item__price">$ {props.amount}</div>
-        </div>
-    );
-   
+import ExpenseDate from './ExpenseDate';
+import Card from '../UI/Card';
+import './ExpenseItem.css';
+
+const ExpenseItem = (props) => {
+  const deleteHandler = () => {
+    document.querySelector('.expenses').removeChild();
+           
+        
+  }
+  return (
+    <Card className='expense-item'>
+      <ExpenseDate date={props.date} />
+      <div className='expense-item__description'>
+        <h2>{props.title}</h2>
+        <div className='expense-item__price'>${props.amount}</div>
+      </div>
+      <button onClick = {deleteHandler}>Delete Expense</button>
+    </Card>
+  );
 }
 
-export default ExpenseDetails;
+export default ExpenseItem;
