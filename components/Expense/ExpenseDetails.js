@@ -1,25 +1,20 @@
-import React from 'react';
+import React, {useState} from "react";
+import "./ExpenseItem.css";
 
-import ExpenseDate from './ExpenseDate';
-import Card from '../UI/Card';
-import './ExpenseItem.css';
-
-const ExpenseItem = (props) => {
-  const deleteHandler = () => {
-    document.querySelector('.expenses').removeChild();
-           
-        
-  }
+const ExpenseDetails = (props) => {
+    const [amount, setAmount] = useState(props.amount);
+    const updateHandler = () => {
+      setAmount("100");
+      console.log(amount);
+    };
   return (
-    <Card className='expense-item'>
-      <ExpenseDate date={props.date} />
-      <div className='expense-item__description'>
-        <h2>{props.title}</h2>
-        <div className='expense-item__price'>${props.amount}</div>
-      </div>
-      <button onClick = {deleteHandler}>Delete Expense</button>
-    </Card>
+    <div className="expense-item__description">
+      <h1>{props.title}</h1>
+      <p>{props.LocationOfExpenditure}</p>
+      <div className="expense-item__price">$ {amount}</div>
+      <button onClick={updateHandler}>Update me</button>
+    </div>
   );
-}
+};
 
-export default ExpenseItem;
+export default ExpenseDetails;
