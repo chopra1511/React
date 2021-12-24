@@ -50,6 +50,7 @@ const App = () => {
       <Card>
         {expenses.map((expense) => (
           <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             LocationOfExpenditure={expense.LocationOfExpenditure}
